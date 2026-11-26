@@ -1,24 +1,46 @@
 const gallery = document.querySelector(".gallery");
 const slides = [...gallery.querySelectorAll(".slide")];
 const controls = gallery.querySelector(".gallery-controls");
-const buttons = [...controls.querySelectorAll("button")];
+const buttons = [...controls.querySelectorAll("[data-slide]")];
 const announcement = gallery.querySelector("[aria-live]");
 let position = 0;
+const playback = controls.querySelector(".gallery-toggle");
+const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+let rotation;
 
-function showSlide(index) {
+function showSlide(index, announce = true) {
   position = (index + slides.length) % slides.length;
   slides.forEach((slide, number) => {
     slide.hidden = number !== position;
     buttons[number].setAttribute("aria-pressed", String(number === position));
   });
-  announcement.textContent = slides[position].querySelector("figcaption").textContent;
+  if (announce) announcement.textContent = slides[position].querySelector("figcaption").textContent;
+}
+
+function setPlaying(playing) {
+  clearInterval(rotation);
+  rotation = playing ? setInterval(() => showSlide(position + 1, false), 6500) : undefined;
+  playback.dataset.playing = String(playing);
+  playback.setAttribute("aria-label", playing ? "Pausar la galería" : "Reproducir la galería");
 }
 
 controls.hidden = false;
-buttons.forEach((button) => button.addEventListener("click", () => showSlide(Number(button.dataset.slide))));
+setPlaying(!reducedMotion.matches);
+reducedMotion.addEventListener("change", (event) => {
+  if (event.matches) setPlaying(false);
+});
+playback.addEventListener("click", () => setPlaying(rotation === undefined));
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) setPlaying(false);
+});
+buttons.forEach((button) => button.addEventListener("click", () => {
+  setPlaying(false);
+  showSlide(Number(button.dataset.slide));
+}));
 controls.addEventListener("keydown", (event) => {
   if (!["ArrowLeft", "ArrowRight"].includes(event.key)) return;
   event.preventDefault();
+  setPlaying(false);
   showSlide(position + (event.key === "ArrowRight" ? 1 : -1));
   buttons[position].focus();
 });
@@ -39,6 +61,7 @@ gallery.addEventListener("touchend", (event) => {
   const vertical = finger.clientY - touchStart.clientY;
   touchStart = undefined;
   if (Math.abs(horizontal) > 55 && Math.abs(horizontal) > Math.abs(vertical)) {
+    setPlaying(false);
     showSlide(position + (horizontal < 0 ? 1 : -1));
   }
 }, { passive: true });

@@ -25,24 +25,25 @@
   </nav>
 </header>
 <main id="contenido">
-  <section class="hero">
+  <section class="hero" aria-labelledby="hero-title">
     <div class="wrap hero-layout">
       <div class="hero-copy">
-        <h1>Consultoría para la transformación empresarial</h1>
-        <p>Ayudamos a las empresas a mejorar cómo se organizan, cómo trabajan y cómo incorporan tecnología e inteligencia artificial.</p>
-        <a class="button light" href="#contacto">Hablemos de tu proyecto</a>
+        <p class="hero-label">Consultoría para la transformación empresarial</p>
+        <h1 id="hero-title">Ayudamos a las empresas a crecer con criterio.</h1>
+        <p class="hero-description">Mejoramos la organización y los procesos e integramos tecnología e IA para hacerlas más eficientes y escalables.</p>
       </div>
-      <div class="gallery" role="region" aria-label="Galería de portada">
-        <figure class="slide"><img src="transformacion.jpg" alt="Perspectiva ascendente de una estructura arquitectónica de metal y vidrio" width="500" height="1000" fetchpriority="high"><figcaption>Transformación empresarial</figcaption></figure>
-        <figure class="slide" hidden><img src="innovacion.jpg" alt="Instrumento experimental iluminado en un laboratorio" width="500" height="1000"><figcaption>I+D e innovación</figcaption></figure>
-        <figure class="slide" hidden><img src="iniciativas.jpg" alt="Modelo de piezas metálicas sobre una mesa de trabajo" width="500" height="1000"><figcaption>Desarrollo de nuevas iniciativas</figcaption></figure>
-        <div class="gallery-controls" hidden>
-          <button type="button" data-slide="0" aria-label="Mostrar transformación empresarial" aria-pressed="true"></button>
-          <button type="button" data-slide="1" aria-label="Mostrar I+D e innovación" aria-pressed="false"></button>
-          <button type="button" data-slide="2" aria-label="Mostrar desarrollo de nuevas iniciativas" aria-pressed="false"></button>
-        </div>
-        <span class="sr-only" aria-live="polite"></span>
+    </div>
+    <div class="gallery" role="region" aria-label="Galería de portada">
+      <figure class="slide"><img src="transformacion.jpg" alt="" width="512" height="1024" fetchpriority="high"><figcaption class="sr-only">Transformación empresarial</figcaption></figure>
+      <figure class="slide" hidden><img src="innovacion.jpg" alt="" width="512" height="1024"><figcaption class="sr-only">I+D e innovación</figcaption></figure>
+      <figure class="slide" hidden><img src="iniciativas.jpg" alt="" width="512" height="1024"><figcaption class="sr-only">Desarrollo de nuevas iniciativas</figcaption></figure>
+      <div class="gallery-controls" hidden>
+        <button class="gallery-toggle" type="button" aria-label="Pausar la galería"></button>
+        <button type="button" data-slide="0" aria-label="Mostrar transformación empresarial" aria-pressed="true"></button>
+        <button type="button" data-slide="1" aria-label="Mostrar I+D e innovación" aria-pressed="false"></button>
+        <button type="button" data-slide="2" aria-label="Mostrar desarrollo de nuevas iniciativas" aria-pressed="false"></button>
       </div>
+      <span class="sr-only" aria-live="polite"></span>
     </div>
   </section>
 
@@ -66,12 +67,11 @@
         </ul>
         </section>
       </div>
+      <section class="service-method split" id="metodo">
+        <div><h3>Cómo trabajamos</h3><p>Trabajamos junto al equipo del cliente para que los cambios se puedan aplicar en su día a día.</p></div>
+        <dl class="steps"><div><dt>Entendemos la situación</dt><dd>Vemos cómo se trabaja hoy, dónde se atascan las decisiones y qué necesita el equipo.</dd></div><div><dt>Acordamos prioridades</dt><dd>Elegimos qué conviene cambiar primero y qué es viable con los recursos disponibles.</dd></div><div><dt>Acompañamos la implantación</dt><dd>Ponemos los cambios en práctica con el equipo, revisamos qué ha mejorado y ajustamos el siguiente paso.</dd></div></dl>
+      </section>
     </div>
-  </section>
-
-  <section class="wrap section split" id="metodo">
-    <div><h2>Cómo trabajamos</h2><p>Trabajamos junto al equipo del cliente para que los cambios se puedan aplicar en su día a día.</p></div>
-    <dl class="steps"><div><dt>Entendemos la situación</dt><dd>Vemos cómo se trabaja hoy, dónde se atascan las decisiones y qué necesita el equipo.</dd></div><div><dt>Acordamos prioridades</dt><dd>Elegimos qué conviene cambiar primero y qué es viable con los recursos disponibles.</dd></div><div><dt>Acompañamos la implantación</dt><dd>Ponemos los cambios en práctica con el equipo, revisamos qué ha mejorado y ajustamos el siguiente paso.</dd></div></dl>
   </section>
 
   <section class="work">
