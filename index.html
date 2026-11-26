@@ -16,13 +16,20 @@
     <a href="#servicios">Qué hacemos</a><a href="#metodo">Cómo trabajamos</a><a href="#experiencia">Experiencia</a><a href="#iniciativas">Iniciativas</a><details class="about-menu">
       <summary>Sobre nosotros</summary>
       <div class="about-links">
-        <a href="#spora">Quiénes somos</a>
+        <a href="#quienes-somos">Quiénes somos</a>
         <a href="#equipo">El equipo</a>
         <a href="#ethos">Nuestros principios</a>
         <a href="#contacto">Contacto</a>
       </div>
     </details>
   </nav>
+  <details class="language-picker">
+    <summary aria-label="Idioma: español">ES</summary>
+    <ul class="language-options">
+      <li lang="es" aria-current="true">Español</li>
+      <li><span lang="en">English</span> <small>Pendiente</small></li>
+    </ul>
+  </details>
 </header>
 <main id="contenido">
   <section class="hero" aria-labelledby="hero-title">
@@ -58,17 +65,20 @@
         <article><h3>I+D e innovación</h3><p>Definimos y acompañamos proyectos de innovación. Exploramos vías de financiación pública cuando encajan con el proyecto.</p></article>
         <article><h3>Normativas</h3><p>Ayudamos a incorporar los requisitos de normas y estándares a la gestión diaria y a preparar procesos de certificación.</p></article>
         <article><h3>Emprendimiento</h3><p>Colaboramos con emprendedores y propietarios para desarrollar nuevas líneas de negocio y preparar su crecimiento.</p></article>
-        <section class="service-audience" id="audiencia">
-          <h3>Con quién trabajamos</h3>
-          <ul class="situations">
-          <li>Empresas que han crecido y necesitan ordenar su forma de trabajar.</li>
-          <li>Equipos que quieren incorporar tecnología o IA a procesos concretos.</li>
-          <li>Organizaciones que se preparan para lanzar un proyecto de innovación o una nueva línea de negocio.</li>
-        </ul>
-        </section>
       </div>
-      <section class="service-method split" id="metodo">
-        <div><h3>Cómo trabajamos</h3><p>Trabajamos junto al equipo del cliente para que los cambios se puedan aplicar en su día a día.</p></div>
+      <section class="service-detail split" id="audiencia">
+        <div>
+          <h2>Con quién</h2>
+          <p>Acompañamos a empresas y equipos que necesitan adaptar su forma de trabajar o poner en marcha una nueva iniciativa.</p>
+        </div>
+        <dl class="steps">
+          <div><dt>Empresas en crecimiento</dt><dd>Han crecido y necesitan ordenar su forma de trabajar.</dd></div>
+          <div><dt>Equipos que quieren incorporar tecnología</dt><dd>Buscan aplicar tecnología o IA a procesos concretos.</dd></div>
+          <div><dt>Organizaciones con nuevos proyectos</dt><dd>Se preparan para lanzar un proyecto de innovación o una nueva línea de negocio.</dd></div>
+        </dl>
+      </section>
+      <section class="service-detail split" id="metodo">
+        <div><h2>Cómo</h2><p>Trabajamos junto al equipo del cliente para que los cambios se puedan aplicar en su día a día.</p></div>
         <dl class="steps"><div><dt>Entendemos la situación</dt><dd>Vemos cómo se trabaja hoy, dónde se atascan las decisiones y qué necesita el equipo.</dd></div><div><dt>Acordamos prioridades</dt><dd>Elegimos qué conviene cambiar primero y qué es viable con los recursos disponibles.</dd></div><div><dt>Acompañamos la implantación</dt><dd>Ponemos los cambios en práctica con el equipo, revisamos qué ha mejorado y ajustamos el siguiente paso.</dd></div></dl>
       </section>
     </div>
@@ -90,10 +100,16 @@
   </section>
 
   <section class="about-section" id="spora">
-    <div class="wrap section split">
+    <div class="wrap section split about-layout">
       <h2>Sobre nosotros</h2>
+      <div class="about-visual">
+        <img src="transformacion.jpg" alt="" width="512" height="1024" loading="lazy">
+      </div>
       <div>
-        <p>Somos una consultora estratégica y de transformación digital.</p>
+        <section class="about-intro" id="quienes-somos">
+          <h3>Quiénes somos</h3>
+          <p>Somos una consultora estratégica y de transformación digital.</p>
+        </section>
         <div class="about-team" id="equipo">
           <h3>El equipo</h3>
           <p>Combinamos experiencia en organización, procesos y tecnología con una red de colaboradores externos que aporta capacidades especializadas según el proyecto.</p>
@@ -122,10 +138,15 @@
 <footer class="contact" id="contacto">
   <div class="wrap">
     <div class="footer-grid">
-      <div>
+      <div class="footer-brand">
         <img class="contact-logo" src="logo-spora.png" alt="Grupo Spora Gestión" width="224" height="224" loading="lazy">
         <p class="footer-motto">Consultoría para la transformación empresarial</p>
         <p class="footer-tagline">Mejoramos procesos y ayudamos a los equipos a incorporar tecnología.</p>
+        <ul class="footer-social" aria-label="Redes sociales y newsletter">
+          <li><span class="social-icon social-linkedin" role="img" aria-label="LinkedIn" title="LinkedIn">in</span></li>
+          <li><span class="social-icon social-x" role="img" aria-label="X" title="X">𝕏</span></li>
+          <li><span class="social-icon social-newsletter" role="img" aria-label="Newsletter" title="Newsletter">✉</span></li>
+        </ul>
       </div>
       <nav class="footer-nav" aria-labelledby="explora">
         <h2 id="explora">Explora</h2>
@@ -136,17 +157,26 @@
         <a href="#spora">Sobre nosotros</a>
       </nav>
       <div>
-        <h2>¿Quieres que te contactemos?</h2>
+        <h2 class="footer-contact-title">¿Quieres que te contactemos?</h2>
         <form id="consulta">
           <label>Nombre<input name="nombre" autocomplete="name" required></label>
           <label>Medio de contacto<input name="medio" type="text" placeholder="Tu correo o teléfono" required></label>
+          <label>Horario preferido (opcional)<input name="horario" type="text" placeholder="Por ejemplo, de L a V de 9:00 a 12:00"></label>
           <button class="button light" aria-describedby="aviso" type="submit">Enviar</button>
-          <p class="form-note" id="aviso">Formulario de demostración.</p>
+          <p class="form-note" id="aviso">Se abrirá tu aplicación de correo para enviar la solicitud.</p>
           <p class="form-note" id="estado" role="status"></p>
         </form>
       </div>
     </div>
-    <div class="footer"><span>2026 @ Grupo Spora Gestión</span><span>Política de privacidad y cookies</span></div>
+    <div class="footer"><span>2026 @ Grupo Spora Gestión S.L</span><div class="footer-tools"><span>Aviso legal, política de privacidad y cookies</span>
+  <details class="language-picker">
+    <summary aria-label="Idioma: español">ES</summary>
+    <ul class="language-options">
+      <li lang="es" aria-current="true">Español</li>
+      <li><span lang="en">English</span> <small>Pendiente</small></li>
+    </ul>
+  </details>
+</div></div>
   </div>
 </footer>
 </body></html>
